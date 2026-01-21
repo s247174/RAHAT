@@ -96,13 +96,13 @@ function delLocalStorage() {
         }, false
     );
 
-    const table = document.getElementById("table1");
+    const table1 = document.getElementById("table1");
     table1.addEventListener("click", (e) => {
         if (e.target.classList.contains("trash") === true) {
             let index = e.target.parentNode.parentNode.rowIndex
             const key = table1.rows[index].cells[1].firstChild.data;
             const value = table1.rows[index].cells[2].firstChild.data;
-            let w_delete = 'LocalStorageから\n 「${ key } ${ value }」 \nを削除しますか?';
+            let w_delete = `LocalStorageから\n 「${key} ${value}」 \nを削除しますか?`;
             Swal.fire({
                 title: "Memo app",
                 html: w_delete,
@@ -112,12 +112,12 @@ function delLocalStorage() {
                 if (result.value === true) {
                     localStorage.removeItem(key);
                     viewStorage();
-                    let w_msg = 'LocalStorageから$ { key } ${ value)を削除(delete)しました!';
+                    let w_msg = `LocalStorageから ${key} ${value} を削除(delete)しました!`;
                     Swal.fire({
                         title: "Memo app",
                         html: w_msg,
                         type: "success",
-                        allowoutsideClick: false
+                        allowOutsideClick: false
                     });
                     document.getElementById("textKey").value = "";
                     document.getElementById("textMemo").value = "";
@@ -125,8 +125,7 @@ function delLocalStorage() {
             })
         }
     });
-};
-
+}
 function allClearLocalStorage() {
     const allClear = document.getElementById("allClear");
     allClear.addEventListener("click",
