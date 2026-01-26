@@ -10,7 +10,6 @@
     from {
         opacity: 0;
         transform: translateY(20px);
-        /* 少し下から上へ */
     }
 
     to {
@@ -19,16 +18,10 @@
     }
 }
 
-
 html {
-    /* ブラウザのデフォルトが16px                        */
-    /* デフォルトの16pxの代わりに1emが10pxになるように調整 */
     font-size: 62.5%;
 }
 
-/* 「*」はユニバーサルセレクタ（すべての要素を対象にするセレクタ）でbox-sizing: border-box;を指定 */
-/* この指定（してい）はborderとpaddingをボックスサイズ（widthとheight）の中に含めて算出するので、スタイリングがしやすい*/
-*,
 *::before,
 *::after {
     box-sizing: border-box;
@@ -46,7 +39,7 @@ body {
         Meiryo,
         sans-serif;
     text-align: center;
-    background-image: url(../img/xxxxxxxx.JPG);
+    background-image: url(../img/a.jpg);
     background-size: cover;
     overflow: hidden;
 }
@@ -145,7 +138,7 @@ a:hover {
     font-size: 0.7em;
 }
 
-.item01 {
+/* .item01 {
     position: relative;
     width: 6em;
     height: 9em;
@@ -163,13 +156,58 @@ a:hover {
     line-height: 1em;
     overflow: hidden;
     opacity: 0;
+} */
+.item01,
+.item02 {
+    background: rgba(255, 255, 255, 0.35);
+    /* সাদা না, transparent */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 14px;
+    padding: 1em 0.5em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
+
+.item01:hover,
+.item02:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.item01 a,
+.item02 a {
+    color: #333;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.item01 a span,
+.item02 a span {
+    display: block;
+    margin-top: 0.3em;
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+h2 {
+    border-left: 6px solid #46aef7;
+    background: linear-gradient(to right, #e6f0ff, transparent);
+}
+
+
 
 .item01 img,
 .item02 img {
-    width: 6em;
-    height: auto;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 0.5em;
+    display: block;
 }
+
 
 .item01 .img_omikuji2 {
     width: auto;
